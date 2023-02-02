@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 
+import muscle from "../images/muscle-man-back.jpg";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -13,7 +15,33 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="text-blue-500">hello</div>
+      <header className="bg-blue-500">
+        <div className="flex items-center justify-between">
+          <div>header</div>
+          <button>Log in</button>
+        </div>
+      </header>
+      <div className="py-4">
+        <div className="container max-w-screen-lg mx-auto px-4">
+          <div className="flex items-center">
+            <div className="basis-1/2">
+              <h1>heading1</h1>
+              <p>paragraph</p>
+              <button>register</button>
+            </div>
+            <div className="basis-1/2">
+              <Image
+                src={muscle}
+                alt="images"
+                width={400}
+                height={400}
+                className="block mx-auto"
+              ></Image>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer className="bg-green-500">footer</footer>
     </>
   );
 }
