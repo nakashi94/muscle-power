@@ -16,6 +16,6 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
           restore-keys: ${{ runner.os }}-yarn-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --prefer-offline
+        run: front/yarn install --frozen-lockfile --prefer-offline
       - name: Run test
-        run: yarn test
+        run: front/yarn test
