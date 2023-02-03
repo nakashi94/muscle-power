@@ -62,9 +62,7 @@ export default function MyPage() {
       <header className="bg-blue-500">
         <div className="flex items-center justify-between">
           <div>
-            <Link href="/" data-testid="header-nav">
-              header
-            </Link>
+            <Link href="/">header</Link>
           </div>
           <button>Log in</button>
         </div>
