@@ -18,4 +18,4 @@ jobs:
       - name: Install dependencies
         run: cd front && yarn install --frozen-lockfile --prefer-offline
       - name: Run test
-        run: yarn test
+        run: cd front && yarn test
