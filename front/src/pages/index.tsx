@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import Router from "next/router";
 
 import muscle from "../images/muscle-man-back.jpg";
 import { HeadTitle } from "@/components/HeadTitle";
@@ -8,9 +6,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
-  const onClickLoginButton = () => {
-    Router.push("/guest");
-  };
   return (
     <>
       <HeadTitle title={""} />
