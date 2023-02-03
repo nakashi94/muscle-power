@@ -12,6 +12,7 @@ import {
 } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
+import Link from "next/link";
 
 ChartJS.register(
   CategoryScale,
@@ -60,7 +61,11 @@ export default function MyPage() {
       </Head>
       <header className="bg-blue-500">
         <div className="flex items-center justify-between">
-          <div>header</div>
+          <div>
+            <Link href="/" data-testid="header-nav">
+              header
+            </Link>
+          </div>
           <button>Log in</button>
         </div>
       </header>

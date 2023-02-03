@@ -1,7 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import Router from "next/router";
 
 import muscle from "../images/muscle-man-back.jpg";
+
+const onClickLoginButton = () => {
+  Router.push("/guest");
+};
 
 export default function Home() {
   return (
@@ -14,8 +20,10 @@ export default function Home() {
       </Head>
       <header className="bg-blue-500">
         <div className="flex items-center justify-between">
-          <div>header</div>
-          <button>Log in</button>
+          <div>
+            <Link href="/">header</Link>
+          </div>
+          <button onClick={onClickLoginButton}>Log in</button>
         </div>
       </header>
       <div className="py-4">
