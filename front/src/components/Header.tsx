@@ -1,14 +1,34 @@
 import Link from "next/link";
 import Router from "next/router";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../config/firebase/firebaseInit";
 import { provider } from "../config/firebase/auth-google-provider-create";
+import Modal from "react-modal";
+
+// Modal.setAppElement("__next");
 
 export const Header: React.FC = memo(() => {
-  const onClickLoginButton = () => {
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
+  const onClickSignIn = () => {
     const auth = getAuth(app);
     signInWithPopup(auth, provider)
       .then(async (result) => {
@@ -52,7 +72,18 @@ export const Header: React.FC = memo(() => {
         <div>
           <Link href="/">header</Link>
         </div>
-        <button onClick={onClickLoginButton}>Log in</button>
+        <button onClick={openModal}>Log in</button>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          ariaHideApp={false}
+          contentLabel="Login Modal"
+        >
+          <button onClick={closeModal}>close</button>
+          <h1>App name</h1>
+          <button onClick={onClickSignIn}>Sign in with Google</button>
+        </Modal>
       </div>
       <ToastContainer />
     </header>
