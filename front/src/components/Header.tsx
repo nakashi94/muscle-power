@@ -26,6 +26,7 @@ export const Header: React.FC = memo(() => {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      backgroundColor: "#1f2937",
     },
   };
   const onClickSignIn = () => {
