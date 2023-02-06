@@ -4,8 +4,8 @@ import React, { memo, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { app } from "../config/firebase/firebaseInit";
-import { provider } from "../config/firebase/auth-google-provider-create";
+import { app } from "../../config/firebase/firebaseInit";
+import { provider } from "../../config/firebase/auth-google-provider-create";
 import Modal from "react-modal";
 
 // Modal.setAppElement("__next");
@@ -26,6 +26,7 @@ export const Header: React.FC = memo(() => {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      backgroundColor: "#1f2937",
     },
   };
   const onClickSignIn = () => {

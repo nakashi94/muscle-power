@@ -1,7 +1,6 @@
-import { Footer } from "@/components/Footer";
-import { HeadTitle } from "@/components/HeadTitle";
-import { Header } from "@/components/Header";
 import React from "react";
+
+import { Footer, Header, HeadTitle } from "../../components/layouts";
 
 export const Profile: React.FC = () => {
   return (

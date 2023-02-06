@@ -11,9 +11,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
-import { HeadTitle } from "../../components/HeadTitle";
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
+import { Footer, Header, HeadTitle } from "../../components/layouts";
 
 ChartJS.register(
   CategoryScale,
