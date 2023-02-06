@@ -5,7 +5,7 @@ import { HeadTitle } from "../components/HeadTitle";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
-export default function Home() {
+export const Home = () => {
   return (
     <>
       <HeadTitle title={""} />
@@ -33,4 +33,6 @@ export default function Home() {
       <Footer />
     </>
   );
-}
+};
+
+export default Home;
