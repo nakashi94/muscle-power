@@ -54,7 +54,7 @@ export const MyPage = () => {
   };
   return (
     <>
-      <HeadTitle title={"my-page"} />
+      <HeadTitle title={"my-page | "} />
       <Header />
       <div>
         <div>content</div>

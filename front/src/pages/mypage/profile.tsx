@@ -6,7 +6,7 @@ import React from "react";
 export const Profile: React.FC = () => {
   return (
     <>
-      <HeadTitle title={"profile"} />
+      <HeadTitle title={"profile | "} />
       <Header />
       <div>
         <h1>profile</h1>
@@ -18,7 +18,6 @@ export const Profile: React.FC = () => {
           <div>
             <div>weight</div>
             <div>60</div>
-            <input type="password" />
           </div>
         </div>
       </div>

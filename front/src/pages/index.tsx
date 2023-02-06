@@ -22,8 +22,9 @@ export const Home = () => {
               <Image
                 src={muscle}
                 alt="images"
-                width={400}
-                height={400}
+                width={256}
+                height={171}
+                priority={true}
                 className="block mx-auto"
               ></Image>
             </div>
