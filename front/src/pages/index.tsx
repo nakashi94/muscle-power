@@ -1,9 +1,7 @@
 import Image from "next/image";
 
 import muscle from "../images/muscle-man-back.jpg";
-import { HeadTitle } from "../components/HeadTitle";
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
+import { Footer, Header, HeadTitle } from "../components/layouts";
 
 export const Home = () => {
   return (
