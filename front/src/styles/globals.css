@@ -7,3 +7,10 @@ body {
   background-color: #1f2937;
   font-family: 'Noto Serif JP', 'Noto Serif', serif;
 }
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
+}
