@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import muscle from "../images/muscle-man-back.jpg";
+import muscle from "../images/muscle-man-back.png";
 import { Footer, Header, HeadTitle } from "../components/layouts";
 
 export const Home = () => {
@@ -20,8 +20,8 @@ export const Home = () => {
               <Image
                 src={muscle}
                 alt="images"
-                width={256}
-                height={171}
+                width={740}
+                height={480}
                 priority={true}
                 className="block mx-auto"
               ></Image>
