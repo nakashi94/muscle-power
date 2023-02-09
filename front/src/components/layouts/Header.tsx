@@ -7,6 +7,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../../config/firebase/firebaseInit";
 import { provider } from "../../config/firebase/auth-google-provider-create";
 import Modal from "react-modal";
+import { IoClose } from "react-icons/io5";
 
 // Modal.setAppElement("__next");
 
@@ -27,6 +28,8 @@ export const Header: React.FC = memo(() => {
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       backgroundColor: "#1f2937",
+      width: "50%",
+      height: "25%",
     },
   };
   const onClickSignIn = () => {
@@ -68,25 +71,42 @@ export const Header: React.FC = memo(() => {
   };
 
   return (
-    <header className="bg-blue-500">
-      <div className="flex items-center justify-between">
-        <div>
-          <Link href="/">header</Link>
+    <header className="bg-gray-op sticky top-0 w-full h-16">
+      <div className="container h-full px-8 mx-auto my-auto top-1/2">
+        <div className="flex items-center justify-between h-full">
+          <div className="text-2xl font-bold">
+            <Link href="/" className="text-blues">
+              header
+            </Link>
+          </div>
+          <button
+            onClick={openModal}
+            className="bg-red-500 rounded px-2 py-1 outline-none border-none"
+          >
+            Log in
+          </button>
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            // style={customStyles}
+            className="absolute top-1/2 left-1/2 right-auto bottom-auto translate-x-[-50%] translate-y-[-50%] bg-gray-800 p-16 rounded-3xl shadow-2xl"
+            ariaHideApp={false}
+            contentLabel="Login Modal"
+          >
+            <button onClick={closeModal} className="absolute top-4 right-4">
+              <IoClose />
+            </button>
+            <h1 className="font-bold text-2xl mb-8">App name</h1>
+            <button
+              onClick={onClickSignIn}
+              className="outline-none border-none rounded bg-red-500 px-4 py-2"
+            >
+              Sign in with Google
+            </button>
+          </Modal>
         </div>
-        <button onClick={openModal}>Log in</button>
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          ariaHideApp={false}
-          contentLabel="Login Modal"
-        >
-          <button onClick={closeModal}>close</button>
-          <h1>App name</h1>
-          <button onClick={onClickSignIn}>Sign in with Google</button>
-        </Modal>
+        <ToastContainer />
       </div>
-      <ToastContainer />
     </header>
   );
 });
