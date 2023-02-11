@@ -9,7 +9,7 @@ import { provider } from "../../config/firebase/auth-google-provider-create";
 import Modal from "react-modal";
 import { IoClose } from "react-icons/io5";
 import { useSetRecoilState } from "recoil";
-import { rememberTokenState } from "@/stores/rememberToken";
+import { rememberTokenState } from "../../stores/rememberToken";
 import Cookies from "js-cookie";
 
 // Modal.setAppElement("__next");

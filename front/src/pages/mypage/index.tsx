@@ -15,7 +15,7 @@ import {
 import { Bar, Chart } from "react-chartjs-2";
 
 import { Footer, Header, HeadTitle } from "../../components/layouts";
-import { rememberTokenState } from "@/stores/rememberToken";
+import { rememberTokenState } from "../../stores/rememberToken";
 
 ChartJS.register(
   LinearScale,
