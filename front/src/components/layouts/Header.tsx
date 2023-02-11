@@ -10,13 +10,13 @@ import Modal from "react-modal";
 import { IoClose } from "react-icons/io5";
 import { useSetRecoilState } from "recoil";
 import { rememberTokenState } from "@/stores/rememberToken";
+import Cookies from "js-cookie";
 
 // Modal.setAppElement("__next");
 
 export const Header: React.FC = memo(() => {
-  // remember token setup
+  // set cookie
   const setRememberToken = useSetRecoilState(rememberTokenState);
-
   // modal
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const closeModal = () => {
@@ -34,6 +34,7 @@ export const Header: React.FC = memo(() => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
+        Cookies.set("rememberToken", token ?? "");
         setRememberToken(token);
         // The signed-in user info.
         // const user = result.user;
