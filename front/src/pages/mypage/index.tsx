@@ -1,4 +1,5 @@
 import React from "react";
+import { useRecoilValue } from "recoil";
 import {
   Chart as ChartJS,
   BarElement,
@@ -14,6 +15,7 @@ import {
 import { Bar, Chart } from "react-chartjs-2";
 
 import { Footer, Header, HeadTitle } from "../../components/layouts";
+import { rememberTokenState } from "@/stores/rememberToken";
 
 ChartJS.register(
   LinearScale,
@@ -28,6 +30,9 @@ ChartJS.register(
 );
 
 export const MyPage = () => {
+  const rememberToken = useRecoilValue(rememberTokenState);
+  console.log(rememberToken);
+  // chart1
   const data1 = {
     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
     datasets: [
@@ -54,6 +59,8 @@ export const MyPage = () => {
       },
     ],
   };
+
+  // chart2
   const labels = [
     "January",
     "February",

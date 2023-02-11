@@ -8,10 +8,16 @@ import { app } from "../../config/firebase/firebaseInit";
 import { provider } from "../../config/firebase/auth-google-provider-create";
 import Modal from "react-modal";
 import { IoClose } from "react-icons/io5";
+import { useSetRecoilState } from "recoil";
+import { rememberTokenState } from "@/stores/rememberToken";
 
 // Modal.setAppElement("__next");
 
 export const Header: React.FC = memo(() => {
+  // remember token setup
+  const setRememberToken = useSetRecoilState(rememberTokenState);
+
+  // modal
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const closeModal = () => {
     setModalIsOpen(false);
@@ -19,6 +25,8 @@ export const Header: React.FC = memo(() => {
   const openModal = () => {
     setModalIsOpen(true);
   };
+
+  // sign in function
   const onClickSignIn = () => {
     const auth = getAuth(app);
     signInWithPopup(auth, provider)
@@ -26,9 +34,10 @@ export const Header: React.FC = memo(() => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
+        setRememberToken(token);
         // The signed-in user info.
-        const user = result.user;
-        console.log(user);
+        // const user = result.user;
+        // console.log(user);
         // IdP data available using getAdditionalUserInfo(result)
         // ...
         await Router.push("/mypage");

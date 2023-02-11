@@ -27,6 +27,7 @@
     "react-icons": "^4.7.1",
     "react-modal": "^3.16.1",
     "react-toastify": "^9.1.1",
+    "recoil": "^0.7.6",
     "ts-jest": "^29.0.5",
     "typescript": "4.9.4"
   },
