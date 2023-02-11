@@ -9,7 +9,7 @@ describe("Home", () => {
   it("renders a heading", () => {
     render(<Home />);
 
-    const heading = screen.getByText("GoriGori");
+    const heading = screen.getByText("header");
 
     expect(heading).toBeInTheDocument();
   });
