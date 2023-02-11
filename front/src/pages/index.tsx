@@ -16,7 +16,9 @@ export const Home = () => {
         <div className="container max-w-screen-lg mx-auto">
           <div className="flex items-center">
             <div className="basis-1/2 px-4">
-              <h1 className="text-4xl font-bold mb-4">heading1</h1>
+              <h1 className="text-4xl font-bold mb-4">
+                ムキムキの先、ゴリゴリへ
+              </h1>
               <p className="mb-12">paragraph</p>
               <button
                 onClick={onClickRegister}

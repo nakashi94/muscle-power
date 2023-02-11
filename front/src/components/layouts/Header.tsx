@@ -19,19 +19,6 @@ export const Header: React.FC = memo(() => {
   const openModal = () => {
     setModalIsOpen(true);
   };
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      backgroundColor: "#1f2937",
-      width: "50%",
-      height: "25%",
-    },
-  };
   const onClickSignIn = () => {
     const auth = getAuth(app);
     signInWithPopup(auth, provider)
@@ -76,7 +63,7 @@ export const Header: React.FC = memo(() => {
         <div className="flex items-center justify-between h-full">
           <div className="text-2xl font-bold">
             <Link href="/" className="text-blues">
-              header
+              GoriGori
             </Link>
           </div>
           <button
@@ -88,7 +75,6 @@ export const Header: React.FC = memo(() => {
           <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
-            // style={customStyles}
             className="absolute top-1/2 left-1/2 right-auto bottom-auto translate-x-[-50%] translate-y-[-50%] bg-gray-800 p-16 rounded-3xl shadow-2xl"
             ariaHideApp={false}
             contentLabel="Login Modal"
@@ -96,7 +82,7 @@ export const Header: React.FC = memo(() => {
             <button onClick={closeModal} className="absolute top-4 right-4">
               <IoClose />
             </button>
-            <h1 className="font-bold text-2xl mb-8">App name</h1>
+            <h1 className="font-bold text-2xl mb-8">GoriGori</h1>
             <button
               onClick={onClickSignIn}
               className="outline-none border-none rounded bg-red-500 px-4 py-2"
