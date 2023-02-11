@@ -78,7 +78,7 @@ export const Header: React.FC = memo(() => {
           </div>
           <button
             onClick={openModal}
-            className="bg-red-500 rounded px-2 py-1 outline-none border-none"
+            className="bg-[rgba(134,111,54,0.75)] rounded px-2 py-1 outline-none border-none hover:opacity-80"
           >
             Log in
           </button>
@@ -89,13 +89,16 @@ export const Header: React.FC = memo(() => {
             ariaHideApp={false}
             contentLabel="Login Modal"
           >
-            <button onClick={closeModal} className="absolute top-4 right-4">
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 hover:opacity-80"
+            >
               <IoClose />
             </button>
             <h1 className="font-bold text-2xl mb-8">GoriGori</h1>
             <button
               onClick={onClickSignIn}
-              className="outline-none border-none rounded bg-red-500 px-4 py-2"
+              className="outline-none border-none rounded bg-[rgba(134,111,54,0.75)] px-4 py-2 hover:opacity-80"
             >
               Sign in with Google
             </button>
