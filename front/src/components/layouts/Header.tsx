@@ -8,10 +8,16 @@ import { app } from "../../config/firebase/firebaseInit";
 import { provider } from "../../config/firebase/auth-google-provider-create";
 import Modal from "react-modal";
 import { IoClose } from "react-icons/io5";
+import { useSetRecoilState } from "recoil";
+import { rememberTokenState } from "../../stores/rememberToken";
+import Cookies from "js-cookie";
 
 // Modal.setAppElement("__next");
 
 export const Header: React.FC = memo(() => {
+  // set cookie
+  const setRememberToken = useSetRecoilState(rememberTokenState);
+  // modal
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const closeModal = () => {
     setModalIsOpen(false);
@@ -19,6 +25,8 @@ export const Header: React.FC = memo(() => {
   const openModal = () => {
     setModalIsOpen(true);
   };
+
+  // sign in function
   const onClickSignIn = () => {
     const auth = getAuth(app);
     signInWithPopup(auth, provider)
@@ -26,9 +34,11 @@ export const Header: React.FC = memo(() => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
+        Cookies.set("rememberToken", token ?? "");
+        setRememberToken(token);
         // The signed-in user info.
-        const user = result.user;
-        console.log(user);
+        // const user = result.user;
+        // console.log(user);
         // IdP data available using getAdditionalUserInfo(result)
         // ...
         await Router.push("/mypage");
@@ -68,7 +78,7 @@ export const Header: React.FC = memo(() => {
           </div>
           <button
             onClick={openModal}
-            className="bg-red-500 rounded px-2 py-1 outline-none border-none"
+            className="bg-[rgba(134,111,54,0.75)] rounded px-2 py-1 outline-none border-none hover:opacity-80"
           >
             Log in
           </button>
@@ -79,13 +89,16 @@ export const Header: React.FC = memo(() => {
             ariaHideApp={false}
             contentLabel="Login Modal"
           >
-            <button onClick={closeModal} className="absolute top-4 right-4">
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 hover:opacity-80"
+            >
               <IoClose />
             </button>
             <h1 className="font-bold text-2xl mb-8">GoriGori</h1>
             <button
               onClick={onClickSignIn}
-              className="outline-none border-none rounded bg-red-500 px-4 py-2"
+              className="outline-none border-none rounded bg-[rgba(134,111,54,0.75)] px-4 py-2 hover:opacity-80"
             >
               Sign in with Google
             </button>
