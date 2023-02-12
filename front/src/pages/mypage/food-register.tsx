@@ -1,7 +1,12 @@
+import Router from "next/router";
 import { Footer, Header, HeadTitle } from "../../components/layouts";
 import React from "react";
 
 export const FoodRegister: React.FC = () => {
+  const onClickAddFood = () => {
+    Router.push("/mypage");
+  };
+
   return (
     <>
       <HeadTitle title={"food-register | "} />
@@ -49,7 +54,7 @@ export const FoodRegister: React.FC = () => {
                   className="block w-full bg-gray-600 rounded focus:border-none focus:outline-none px-4 py-2"
                 />
               </div>
-              <div>
+              <div className="mb-8">
                 <div className="mb-4">
                   <label htmlFor="time-to-eat" className="text-xl">
                     time to eat
@@ -63,8 +68,14 @@ export const FoodRegister: React.FC = () => {
                   autoFocus={false}
                   step="300"
                   required={true}
-                  className="block w-full bg-gray-600 rounded focus:border-none focus:outline-none px-4 py-2"
+                  className="block w-full bg-gray-600 rounded focus:border-none focus:outline-none px-4 py-2 mb-16"
                 />
+                <button
+                  onClick={onClickAddFood}
+                  className="bg-gray-800 w-full rounded px-2 py-1 mb-8 shadow-[8px_8px_16px_rgba(17,24,39,1.0),-8px_-8px_16px_rgba(55,65,81,1.0)] outline-none border-none hover:opacity-80"
+                >
+                  食べたものを登録
+                </button>
               </div>
             </form>
           </div>
