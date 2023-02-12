@@ -35,6 +35,9 @@ class Favorite(models.Model):
         managed = False
         db_table = 'favorite'
 
+    def __str__(self):
+        return self.food_name
+
 
 class FoodLog(models.Model):
     id = models.UUIDField(primary_key=True)
@@ -48,6 +51,9 @@ class FoodLog(models.Model):
         managed = False
         db_table = 'food_log'
 
+
+    def __str__(self):
+        return self.food_name
 
 class Fooddata(models.Model):
     food_number = models.CharField(primary_key=True, max_length=5)
@@ -80,6 +86,10 @@ class Fooddata(models.Model):
     class Meta:
         managed = False
         db_table = 'fooddata'
+    
+
+    def __str__(self):
+        return self.food_name
 
 
 class Profile(models.Model):
@@ -93,6 +103,9 @@ class Profile(models.Model):
     class Meta:
         managed = False
         db_table = 'profile'
+
+    def __float__(self):
+        return self.weight
 
 
 class User(models.Model):
