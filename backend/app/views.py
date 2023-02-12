@@ -6,7 +6,7 @@ from django.http.response import JsonResponse
 import datetime
 
 
-def get_food(request):
+def weeklyfood(request):
     fooddata = FoodLog.objects.filter(user="5d15a9e6-2838-d994-0d28-99c30b0b0bdf", created_at__range=["2023-02-06","2023-02-13"]).order_by("created_at")
     dt1 = datetime.datetime.now(datetime.timezone.utc)
     foodlist = [{"kcal": 0, "protein" : 0, "fat" : 0, "carbo" : 0}] * 7
