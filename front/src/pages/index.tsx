@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Router from "next/router";
+import { useEffect } from "react";
 
 import muscle from "../images/muscle-man-back.png";
 import { Footer, Header, HeadTitle } from "../components/layouts";
@@ -8,10 +9,16 @@ export const Home = () => {
   const onClickRegister = () => {
     Router.push("/mypage");
   };
+  const getData = async () => {
+    const data = await fetch("http://localhost:8000/api/foodlog");
+    const food = await data.json();
+    console.log(food);
+  };
   return (
     <>
       <HeadTitle title={""} />
       <Header />
+      <button onClick={getData}>get</button>
       <div className="py-4">
         <div className="container max-w-screen-lg mx-auto">
           <div className="flex items-center">
